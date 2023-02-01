@@ -1,22 +1,3 @@
-/*
-    "tags": [
-        {
-            "id": "",
-            "name": "",
-            "userId": "",
-            "isFavorite": ""
-        }
-    ],
-    "taggedSongs": [
-        {
-            "id": "",
-            "userId": "",
-            "songId": "",
-            "tagId": ""
-        }
-    ]
-*/
-
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 

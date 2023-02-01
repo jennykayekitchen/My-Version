@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Tag } from "./Tag"
 
 export const TagList = () => {
     const [tags, setTags] = useState([])
@@ -17,16 +18,11 @@ export const TagList = () => {
     return <div className="tags">
         <h2>Currently Saved Tags</h2>
         {
-            tags.map(
-                (tag) => {
-                    return (
-                        <div className="tag" key={`tag--${tag.id}`}>
-                            <div className="tagName">Tag Name: {tag.name}</div>
-                            <div className="tagFavorite">Favorite: {tag.isFavorite ? "Yes" : "No"}</div>
-                        </div>
-                    )
-                }
-            )
+            tags.map(tag => <Tag key={`tag--${tag.id}`}
+                tagId = {tag.id}
+                tagName = {tag.name}
+                tagIsFavorite = {tag.isFavorite}
+                />)    
         }
     </div>
 }

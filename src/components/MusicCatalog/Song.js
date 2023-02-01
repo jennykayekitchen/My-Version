@@ -25,8 +25,16 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
         })
 
     }
-            
-
+    
+    // function to determine what song's current tag is?
+    const hasTag = () => {
+        if (taggedSong.songId === songId) {
+            return <div className="currentTag">Current Tag: {taggedSong.id}</div>
+        }
+        else {
+            return ""
+        }
+    }
 
     return <>
     <div className="song">
@@ -35,12 +43,12 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
                     <div className="artist">Artist: {artist}</div>
                     <div className="featuring">Featuring: {featuringName}</div>
                     <select className="tagDropdown" onChange={
-                                    (event) => {
-                                        const copy = {...taggedSong}
-                                        copy.tagId = parseInt(event.target.value)
-                                        setTaggedSong(copy)
-                                    }
-                                }>
+                        (event) => {
+                            const copy = {...taggedSong}
+                            copy.tagId = parseInt(event.target.value)
+                            setTaggedSong(copy)
+                        }
+                    }>
                         <option value="0" >Select Tag</option>
                         {tags.map(
                             (tag) => {
@@ -48,8 +56,9 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
                                 value={tag.id}
                                 >{tag.name}</option>
                             }
-                        )}
+                            )}
                     </select>
+                    {hasTag()}
                     <button 
                         onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                             className="btn btn-primary">
@@ -58,3 +67,16 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
                     </div>
     </>
 }
+
+//if taggedSong.id === song.id then ?
+
+
+
+// const canClose = () => {
+//     if (userEmployee?.id === assignedEmployee?.id && ticketObject.dateCompleted === "") {
+//         return <button onClick={closeTicket} className="ticket__finish">Close Ticket</button>
+//     }
+//     else {
+//         return ""
+//     }
+// }

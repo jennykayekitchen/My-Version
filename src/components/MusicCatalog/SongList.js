@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
 import { Song } from "./Song"
-//import { Song } from "./Song"
+
 
 import "./SongList.css"
 
