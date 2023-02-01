@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-//import { useNavigate } from "react-router-dom"
+import {  useEffect, useState } from "react"
 
 export const Song = ({ songName, albumName, artist, featuringName, songId, tags }) => {
     const localMyVersionUser = localStorage.getItem("my_version_user")
@@ -11,11 +10,21 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
         tagId: 0
     })
 
-    const handleSaveButtonClick = (event) => {
-        //event.preventDefault()
-        
-      
-   
+    const [chosenTag, setChosenTag] =useState([])
+
+    useEffect(
+    () => {
+        fetch(`http://localhost:8088/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&_expand=tag`)
+        .then(response =>response.json())
+        .then((data) => {
+            setChosenTag(data)
+        })
+    },
+    []
+    )
+
+    const handleSaveButtonClick = () => {
+           
         return fetch(`http://localhost:8088/taggedSongs`, {
             method: "POST",
             headers: {
@@ -23,52 +32,65 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
             },
                 body: JSON.stringify(taggedSong)
         })
+        .then(response =>response.json())
+        .then ((data) => {
+            setChosenTag(data)
+        })
 
+    }
+
+    const handleDeleteButtonClick = () => {
+        
+        return fetch(`http://localhost:8088/taggedSongs/${chosenTag[0].id}`, {
+            method: "DELETE"
+
+        })
+            .then (() => {
+                setChosenTag([])
+            })          
     }
     
-    // function to determine what song's current tag is?
-    const hasTag = () => {
-        if (taggedSong.songId === songId) {
-            return <div className="currentTag">Current Tag: {taggedSong.id}</div>
-        }
-        else {
-            return ""
-        }
-    }
-
     return <>
     <div className="song">
                     <div className="songName">Track Name: {songName}</div>
                     <div className="albumName">Album: {albumName}</div>
                     <div className="artist">Artist: {artist}</div>
                     <div className="featuring">Featuring: {featuringName}</div>
-                    <select className="tagDropdown" onChange={
-                        (event) => {
-                            const copy = {...taggedSong}
-                            copy.tagId = parseInt(event.target.value)
-                            setTaggedSong(copy)
-                        }
-                    }>
-                        <option value="0" >Select Tag</option>
-                        {tags.map(
-                            (tag) => {
-                                return <option key={tag.id} 
-                                value={tag.id}
-                                >{tag.name}</option>
-                            }
-                            )}
-                    </select>
-                    {hasTag()}
-                    <button 
-                        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                    {chosenTag.length 
+                        ? <><div className="currentTag">Current Tag: {chosenTag[0]?.tag?.name}</div>
+                        <button onClick={(clickEvent) => handleDeleteButtonClick(clickEvent)}
                             className="btn btn-primary">
-                            Save Tag
-                    </button>
+                                Delete Tag
+                            </button></>
+                        : <><select className="tagDropdown" onChange={
+                            (event) => {
+                                const copy = {...taggedSong}
+                                copy.tagId = parseInt(event.target.value)
+                                setTaggedSong(copy)
+                            }
+                        }>
+                            <option value="0" >Select Tag</option>
+                            {tags.map(
+                                (tag) => {
+                                    return <option key={tag.id} 
+                                    value={tag.id}
+                                    >{tag.name}</option>
+                                }
+                                )}
+                        </select>
+                        <button 
+                            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                                className="btn btn-primary">
+                                Save Tag
+                        </button>
+                        </>
+                        }
+                    
                     </div>
     </>
 }
 
-//if taggedSong.id === song.id then ?
+
 
 
 
@@ -80,3 +102,29 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
 //         return ""
 //     }
 // }
+
+
+// const deleteButton = () => {
+//     if (!currentUser.staff) {
+//         return <button onClick={() => {
+//             fetch(`http://localhost:8088/serviceTickets/${ticketObject.id}`, {
+//                 method: "DELETE"
+//             })
+//                 .then(() => {
+//                     getAllTickets()
+//                 })
+//         }} className="ticket__delete">Delete</button>
+//     }
+//     else {
+//         return ""
+//     }
+// }
+
+
+
+
+
+
+
+
+
