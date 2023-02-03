@@ -1,12 +1,9 @@
-import { useInsertionEffect } from "react"
 import { useEffect, useState } from "react"
-//import { PlaylistFilter } from "../GeneratePlaylist/PlaylistFilter"
 import { Song } from "./Song"
-
-
 import "./SongList.css"
 
 export const SongList = () => {
+    //fetches all the songs in the database and then sets the songs object to that data when the page loads
     const [songs, setSongs] = useState([])
     useEffect(
         () => {
@@ -19,7 +16,7 @@ export const SongList = () => {
         },
         []
     )
-
+    //fetches all the tags that the user has created and then sets the tags object to that data when the page loads
     const [tags, setTags] = useState([])
     useEffect(
         () => {
@@ -30,40 +27,13 @@ export const SongList = () => {
             })
         },
         []
-    )
-
-
-    // const [filterTag, setFilterTag] =useState([])
+    )   
     
-    // const playlistFilter = () => {
-    //     return (
-    //         <div id="filter-bar">
-    //             <select
-    //                 className="filter-box"
-    //                 value={chosenTag.id}
-    //                 id="tag-select"
-    //                 onChange={(event) => {
-    //                     setFilterTag(parseInt(event.target.value))
-    //                 }}
-    //             >
-    //                 <option value="0">All Songs</option>
-    //                 {tags.map((tag) => {
-    //                     return (
-    //                         <option key={tag.id}
-    //                             value={tag.id}>
-    //                                 {tag.name}
-    //                             </option>
-    //                     )
-    //                 })}
-    //             </select>
-    //         </div>
-    //     )
-    // }
-    
-
+    //renders the list of all songs
     return <div className="songs">
         <h2>Music Catalog</h2>
-        {/* {playlistFilter()} */}
+        {/* maps through each song and creates props for the info to be passed to song.js which will then deconstruct the 
+        info to populate each song */}
         {
             songs.map(song => <Song key={`song--${song.id}`} songId={song.id}
                 songName = {song.songName}
@@ -71,7 +41,6 @@ export const SongList = () => {
                 artist = {song.artist}
                 featuringName = {song.featuringName}
                 tags = {tags}
-                // filterTag = {filterTag}
                 />)       
             }        
     </div>
