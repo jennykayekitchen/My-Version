@@ -1,6 +1,6 @@
 import {  useEffect, useState } from "react"
 
-export const Song = ({ songName, albumName, artist, featuringName, songId, tags }) => {
+export const Song = ({ songName, albumName, artist, featuringName, songId, tags, }) => {
     const localMyVersionUser = localStorage.getItem("my_version_user")
     const myVersionUserObject = JSON.parse(localMyVersionUser)
     
@@ -10,19 +10,31 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
         tagId: 0
     })
 
+    // const getFilteredSongs = () => {
+    //     fetch(`http://localhost:8088/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&tagId=${filterTag.id}`)
+    //     .then(response =>response.json())
+    //     .then((data) => {
+    //         setFilterTag(data)
+    //     })
+    // }
+
     const [chosenTag, setChosenTag] =useState([])
 
-    useEffect(
-    () => {
+    const getTaggedSong = () => {
         fetch(`http://localhost:8088/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&_expand=tag`)
         .then(response =>response.json())
         .then((data) => {
             setChosenTag(data)
         })
-    },
-    []
-    )
+    }
 
+    useEffect(
+        () => {
+        getTaggedSong()
+        },
+        []
+    )
+    
     const handleSaveButtonClick = () => {
            
         return fetch(`http://localhost:8088/taggedSongs`, {
@@ -33,10 +45,9 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
                 body: JSON.stringify(taggedSong)
         })
         .then(response =>response.json())
-        .then ((data) => {
-            setChosenTag(data)
+        .then (() => {
+            getTaggedSong()
         })
-
     }
 
     const handleDeleteButtonClick = () => {
@@ -56,7 +67,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags 
                     <div className="albumName">Album: {albumName}</div>
                     <div className="artist">Artist: {artist}</div>
                     <div className="featuring">Featuring: {featuringName}</div>
-                    {chosenTag.length 
+                    {chosenTag.length
                         ? <><div className="currentTag">Current Tag: {chosenTag[0]?.tag?.name}</div>
                         <button onClick={(clickEvent) => handleDeleteButtonClick(clickEvent)}
                             className="btn btn-primary">

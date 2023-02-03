@@ -1,4 +1,6 @@
+import { useInsertionEffect } from "react"
 import { useEffect, useState } from "react"
+//import { PlaylistFilter } from "../GeneratePlaylist/PlaylistFilter"
 import { Song } from "./Song"
 
 
@@ -30,8 +32,38 @@ export const SongList = () => {
         []
     )
 
+
+    // const [filterTag, setFilterTag] =useState([])
+    
+    // const playlistFilter = () => {
+    //     return (
+    //         <div id="filter-bar">
+    //             <select
+    //                 className="filter-box"
+    //                 value={chosenTag.id}
+    //                 id="tag-select"
+    //                 onChange={(event) => {
+    //                     setFilterTag(parseInt(event.target.value))
+    //                 }}
+    //             >
+    //                 <option value="0">All Songs</option>
+    //                 {tags.map((tag) => {
+    //                     return (
+    //                         <option key={tag.id}
+    //                             value={tag.id}>
+    //                                 {tag.name}
+    //                             </option>
+    //                     )
+    //                 })}
+    //             </select>
+    //         </div>
+    //     )
+    // }
+    
+
     return <div className="songs">
         <h2>Music Catalog</h2>
+        {/* {playlistFilter()} */}
         {
             songs.map(song => <Song key={`song--${song.id}`} songId={song.id}
                 songName = {song.songName}
@@ -39,33 +71,8 @@ export const SongList = () => {
                 artist = {song.artist}
                 featuringName = {song.featuringName}
                 tags = {tags}
+                // filterTag = {filterTag}
                 />)       
             }        
     </div>
 }
-
-//to use when I create tags in application
-// update the fetch to this: fetch(`http://localhost:8088/songs?_expand=taggedSongs
-// return <article className="Songs">
-//         {
-//             songs.map(song => <Song key={`song--${song.songId}`}
-//                 id={song.userId}
-//                 songName={song.songName}
-//                 albumName={song.AlbumName}
-//                 tag={song.taggedSong.name}
-//                 etc 
-//                 />)
-//             }
-        
-//     </article>
-
-//put this in Song.js
-// import { Link } from "react-router-dom"
-
-// export const Song = ({ id, songName, albumName, tag, tect }) => {
-//     return <section className="Song" >
-//                     <div>{songName}</div>
-//                     <div>{albumName</div>
-//                     <div>{tag}</div>
-//                 </section>
-// }
