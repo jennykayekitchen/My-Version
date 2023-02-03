@@ -13,7 +13,7 @@ export const UserNav = () => {
                 <Link className="navbar__link" to="/addtag">Add a New Tag</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/managetags">Manage Tags</Link>
+                <Link className="navbar__link" to="/generateplaylist">Generate Playlist</Link>
             </li>
 
             {
@@ -29,3 +29,7 @@ export const UserNav = () => {
         </ul>
     )
 }
+
+//<li className="navbar__item active">
+//<Link className="navbar__link" to="/managetags">Manage Tags</Link>
+//</li>

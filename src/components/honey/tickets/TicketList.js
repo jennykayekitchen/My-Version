@@ -16,7 +16,7 @@ export const TicketList = ({ searchTermsState }) => {
     const localHoneyUser = localStorage.getItem("honey_user")
     const honeyUserObject = JSON.parse(localHoneyUser)
 
-    //useEffect = what to do when stuff in [] changes and / or initial render if [])
+    //useEffect = what to do when stuff in [] changes and / or initial render if [] / you can only put state in the [])
     useEffect(
         () => {
             const searchedTickets = tickets.filter(ticket => {
