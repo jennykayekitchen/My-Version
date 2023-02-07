@@ -4,7 +4,8 @@ import { ApplicationViews } from "./views/ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
-import "./Repairs.css"
+
+import "./MyVersion.css"
 
 
 export const MyVersion = () => {
@@ -17,10 +18,17 @@ export const MyVersion = () => {
 				<>
 					<NavBar />
 					<ApplicationViews />
+
+					
 				</>
 			</Authorized>
 
 		} />
 	</Routes>
+		
 }
 
+/*
+import tsgif from "./taylor_swift.gif"
+<><div className="main-image"><img src={tsgif} /></div></>
+*/

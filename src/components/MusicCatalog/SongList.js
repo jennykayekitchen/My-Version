@@ -1,12 +1,11 @@
-import { useInsertionEffect } from "react"
 import { useEffect, useState } from "react"
-//import { PlaylistFilter } from "../GeneratePlaylist/PlaylistFilter"
 import { Song } from "./Song"
-
-
 import "./SongList.css"
 
+
+
 export const SongList = () => {
+    //fetches all the songs in the database and then sets the songs object to that data when the page loads
     const [songs, setSongs] = useState([])
     useEffect(
         () => {
@@ -19,7 +18,7 @@ export const SongList = () => {
         },
         []
     )
-
+    //fetches all the tags that the user has created and then sets the tags object to that data when the page loads
     const [tags, setTags] = useState([])
     useEffect(
         () => {
@@ -30,49 +29,49 @@ export const SongList = () => {
             })
         },
         []
-    )
+    ) 
 
-
-    // const [filterTag, setFilterTag] =useState([])
+    //function that loops through the songs and creates a separate array for each album by creating an empty album object and then for each song
+    //it checks if it already has an object with the same album name as the current song, 
+    //if it does it adds the song to the array, if it doesn't it creates the album object and adds the song
+    const albumSongs = songs.reduce((albums, song) => {
+        const album = albums.find(album => album.albumNumber === song.albumNumber);
+        if (album) {
+          album.songs.push(song);
+        } else {
+          albums.push({
+            albumNumber: song.albumNumber,
+            albumName: song.albumName,
+            songs: [song]
+          });
+        }
+        return albums;
+      }, []);
     
-    // const playlistFilter = () => {
-    //     return (
-    //         <div id="filter-bar">
-    //             <select
-    //                 className="filter-box"
-    //                 value={chosenTag.id}
-    //                 id="tag-select"
-    //                 onChange={(event) => {
-    //                     setFilterTag(parseInt(event.target.value))
-    //                 }}
-    //             >
-    //                 <option value="0">All Songs</option>
-    //                 {tags.map((tag) => {
-    //                     return (
-    //                         <option key={tag.id}
-    //                             value={tag.id}>
-    //                                 {tag.name}
-    //                             </option>
-    //                     )
-    //                 })}
-    //             </select>
-    //         </div>
-    //     )
-    // }
-    
-
-    return <div className="songs">
-        <h2>Music Catalog</h2>
-        {/* {playlistFilter()} */}
-        {
-            songs.map(song => <Song key={`song--${song.id}`} songId={song.id}
-                songName = {song.songName}
-                albumName = {song.albumName}
-                artist = {song.artist}
-                featuringName = {song.featuringName}
-                tags = {tags}
-                // filterTag = {filterTag}
-                />)       
-            }        
-    </div>
+    //renders the list of all songs
+    return <div className="albums">
+            <div className="title"><h2>Music Catalog</h2></div>
+            {/* maps through each song and creates props for the info to be passed to song.js which will then deconstruct the 
+            info to populate each song */}
+            
+                {albumSongs.map(album => (
+                    <div className="album">
+                        <div className={"albumTitle"}><h2>{album.albumName}</h2></div>
+                            <div className={`album__${album.albumNumber}`}>
+                                {/* <div className={`albumPicture__${album.albumNumber}`}></div> */}
+                                <div className="albumSongs">{album.songs.map(song => <Song key={`song--${song.id}`} songId={song.id}
+                                    songName={song.songName}
+                                    //albumNumber = {albumNumber}
+                                    albumName={song.albumName}
+                                    artist={song.artist}
+                                    featuringName={song.featuringName}
+                                    tags={tags} />
+                                )}
+                            </div>           
+                        </div>
+                    </div>
+            ))}
+            </div>
+            
+        
 }
