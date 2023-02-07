@@ -1,0 +1,45 @@
+/* Import the google web fonts you want to use */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Permanent+Marker&display=swap');
+
+/*Typography
+--------------------------------------------------------------*/
+body {
+  background-image: url(backgroundpaper.jpg);
+}
+
+button,
+input,
+select,
+textarea {
+  color: #190002;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Permanent Marker', sans-serif;
+  letter-spacing: 2px;
+  color: #190002;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+.title--main {
+  margin-block-end: 0;
+}
+
+.main-image {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+

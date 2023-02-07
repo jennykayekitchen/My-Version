@@ -43,10 +43,10 @@ export const GeneratePlaylist = () => {
     
     return (
         <div>
-        <h2>Filter Tagged Songs</h2>
+        <h2>Generate a Playlist Based on Your Mood</h2>
             {/* dropdown list of the user's tags and when one is selected it sets chosenTag to that parseInt tag.id */}
             <select onChange={(event) => setChosenTag(parseInt(event.target.value))}>
-                <option value={0}>Select a Tag</option>
+                <option value={0}>Select a Mood</option>
                 {tags.map((tag) => (
                 <option key={tag.id} value={tag.id}>
                     {tag.name}
@@ -58,7 +58,7 @@ export const GeneratePlaylist = () => {
             <ul>
             {/* maps through each filtered song to list out the song name */}
                 {filteredSongs.map((filteredSong) => 
-                <div className={filteredSong.id}><li>{filteredSong?.song?.songName} by {filteredSong?.song?.artist}</li></div>
+                <div className="filteredSong" key={filteredSong.id}><li>{filteredSong?.song?.songName} by {filteredSong?.song?.artist}</li></div>
                 )}
             </ul>
             </div>
@@ -66,35 +66,5 @@ export const GeneratePlaylist = () => {
     );
 };
 
-// useEffect(
-//     () => {
-//         const filteredTaggedSongs = songs.filter((song) => {
-//             return taggedSongs.filter((taggedSong) => chosenTag === taggedSong.tagId && song.id === taggedSong.songId)})
-//         setFilteredSongs(filteredTaggedSongs)
-//     },
-//     [chosenTag]
-// )
 
-// return (
-//     <div>
-//     <h2>Filter Tagged Songs</h2>
-//         {/* dropdown list of the user's tags and when one is selected it sets chosenTag to that tag.id */}
-//         <select onChange={(event) => setChosenTag(parseInt(event.target.value))}>
-//             <option value={0}>Select a Tag</option>
-//             {tags.map((tag) => (
-//             <option key={tag.id} value={tag.id}>
-//                 {tag.name}
-//             </option>
-//             ))}
-//         </select>
-//     <h2>List of Songs</h2>
-//         <ul>
-//         {/* maps through each filtered song to list out the song name */}
-//             {filteredSongs.map((filteredSong) => (
-//                 <li key={filteredSong.id}>{filteredSong?.song?.songName}</li>
-//             ))}
-//         </ul>
-//     </div>
-// );
-// };
 

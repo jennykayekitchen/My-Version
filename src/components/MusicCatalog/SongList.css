@@ -1,7 +1,49 @@
+body {
+    
+}
+
 .songs{
-    border: 1px black solid;
+    padding: 20px;
 }
 
 .song {
-    border: 1px black solid
+    /* border: 1px black solid; */
+    padding-bottom: 1px;
+    margin: 5px;
 }
+
+.title {
+    text-align: center;
+}
+
+.album {
+    /* display:inline-block; */
+    margin-bottom: 10px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:#F5F2EE;
+    border:solid 5px#190002
+    ;
+    width: 70%
+}
+
+.albums {
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tagList {
+    display: flex;
+    justify-content: left;
+    font-size: smaller;
+}
+
+.albumTitle {
+    text-align: left;
+    padding-left: 10px;
+}
+

@@ -10,9 +10,8 @@ export const UserViews = () => {
 	return (
         <Routes>
             <Route path="/" element={
-                <>
-                    <h1>My Version</h1>
-
+                <>                       
+                    
                     <Outlet />
                 </>
             }>
@@ -23,6 +22,7 @@ export const UserViews = () => {
                 <Route path="generateplaylist" element={ <GeneratePlaylist /> } />
                 
             </Route>
+            
         </Routes>
     )
 }

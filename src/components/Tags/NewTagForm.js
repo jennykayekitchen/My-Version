@@ -44,16 +44,16 @@ export const NewTagForm = () => {
     //new tag form
     return (
         <form className="tagForm">
-            <h2 className="tagForm__title">Add a New Tag</h2>
+            <h2 className="tagForm__title">Add a Mood</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="tagName">Tag name:</label>
+                    <label htmlFor="tagName">Mood Name:</label>
                     {/* creates text box for user to input the name of their tag, then assigns that as tag.name */}
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Enter tag name."
+                        placeholder="Enter mood name."
                         value={tag.name}
                         onChange={
                             (event) => {
@@ -82,7 +82,7 @@ export const NewTagForm = () => {
             <button 
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                Save Tag
+                Save Mood
             </button>
         </form>
     )
