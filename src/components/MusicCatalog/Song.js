@@ -11,38 +11,38 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
     const localMyVersionUser = localStorage.getItem("my_version_user")
     const myVersionUserObject = JSON.parse(localMyVersionUser)
         
-    const [taggedSong, setTaggedSong] = useState([])
+    const [taggedSongs, setTaggedSongs] = useState([])
 
     //when the user selects a tag and clicks save, the save button function posts the tag info to chosen tag, and then the fetch pulls it back out so that it
     //will be displayed as the current tag, and rerenders so the user can delete the current tag
-    const [chosenTag, setChosenTag] =useState([])
+    const [chosenTags, setChosenTags] =useState([])
 
-        const getTaggedSong = () => {
-        fetch(`http://localhost:8088/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&_expand=tag`)
-        .then(response =>response.json())
-        .then((data) => {
-            setChosenTag(data)
-        })
+        const getTaggedSongs = () => {
+            fetch(`http://localhost:8088/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&_expand=tag`)
+            .then(response =>response.json())
+            .then((data) => {
+                setChosenTags(data)
+            })
         }
     
         useEffect(
         () => {
-        getTaggedSong()
+        getTaggedSongs()
         },
         []
     )
 
     //function to handle what happens when a tag is checked or unchecked. if the song already has that tag, then it isn't added, 
     //but if it doesn't have that tag a new array is created with any tag already there plus the new one
-    const handleCheckboxChange = (event) => {
-        const newChosenTag = event.target.value
-        if (chosenTag.includes(newChosenTag)) {
-            setTaggedSong(chosenTag.filter(tag=> tag !== newChosenTag))
-        }
-        else {
-            setTaggedSong([...chosenTag, newChosenTag])
-        }
-    }
+    // const handleCheckboxChange = (event) => {
+    //     const newChosenTag = event.target.value
+    //     if (chosenTags.includes(newChosenTag)) {
+    //         setTaggedSongs(chosenTags.filter(tag=> tag !== newChosenTag))
+    //     }
+    //     else {
+    //         setTaggedSongs([...chosenTags, newChosenTag])
+    //     }
+    // }
 
     const handleSaveButtonClick = () => {
         // get the checked tag values
@@ -57,41 +57,45 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
         }))
     
         // post each new taggedSong to the server
-        newTaggedSongs.forEach(taggedSong => {
+        newTaggedSongs.forEach(taggedSongs => {
             fetch(`http://localhost:8088/taggedSongs`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(taggedSong)
+                body: JSON.stringify(taggedSongs)
             })
         })
     
         // refresh the taggedSongs
-        getTaggedSong()
+        getTaggedSongs()
     }
 
     //when the delete button is clicked, the tagged song is deleted from the database, then it rerenders and the user
     //can select a new tag
     const handleDeleteButtonClick = () => {
         
-        return fetch(`http://localhost:8088/taggedSongs/${chosenTag[0].id}`, {
+        return fetch(`http://localhost:8088/taggedSongs/${chosenTags[0].id}`, {
             method: "DELETE"
 
         })
             .then (() => {
-                setChosenTag([])
+                setChosenTags([])
             })          
     }
     
     return <>
     <div className="song">
                     {featuringName === ""
-                        ? <><div className="song_albumName">{songName} by {artist}</div></>
-                        : <><div className="song_albumName">{songName} by {artist} featuring {featuringName}</div></>
+                        ? <><div className="song_artistName">{songName} by {artist}</div></>
+                        : <><div className="song_artistName">{songName} by {artist} featuring {featuringName}</div></>
                     }
-                    {chosenTag.length
-                        ? <><div className="currentTag">Current Mood: {chosenTag?.tag?.name}
+                    {chosenTags.length
+                        ? <><div className="currentTag">Current Mood: <ul>{chosenTags.map(
+                            (chosenTag) => {
+                                return <li key={chosenTag.id}>{chosenTag.tag?.name}</li>
+                            }
+                        )}</ul>
                            <button onClick={(clickEvent) => handleDeleteButtonClick(clickEvent)}
                             className="btn btn-primary">
                                 Delete Mood{`(s)`}
@@ -99,7 +103,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
                             </div></>
                         : <><div className="tagList">{tags.map(
                                 (tag) => {
-                                    return <div key={tag.id} ><input value={tag.id} name={tag.name} type="checkbox" onChange={(clickEvent) => handleCheckboxChange(clickEvent)}/><label htmlFor={tag.name}>{tag.name}   </label>
+                                    return <div key={tag.id} ><input value={tag.id} name={tag.name} type="checkbox" /><label htmlFor={tag.name}>{tag.name}   </label>
                                     </div>
                                 }
                                 )}
@@ -117,6 +121,8 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
 }
 
 /* JUST CHECKBOXES
+
+onChange={(clickEvent) => handleCheckboxChange(clickEvent)}
 import {  useEffect, useState } from "react"
 
 export const Song = ({ songName, albumName, artist, featuringName, songId, tags, }) => {

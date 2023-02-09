@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./Tag.css"
 
 export const NewTagForm = () => {
     //Using the useNavigation() hook so you can redirect the user at a specific time in a function
@@ -43,8 +44,11 @@ export const NewTagForm = () => {
 
     //new tag form
     return (
+        <div className="tag_page">
         <form className="tagForm">
-            <h2 className="tagForm__title">Add a Mood</h2>
+            <div className="page_title_tagForm"><h2>Add a Mood</h2></div>
+                <em className="tape"></em>
+            <div className="tagFormOptions">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="tagName">Mood Name:</label>
@@ -84,6 +88,8 @@ export const NewTagForm = () => {
                 className="btn btn-primary">
                 Save Mood
             </button>
+            </div>
         </form>
+        </div>
     )
 }

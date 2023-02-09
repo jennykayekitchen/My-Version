@@ -28,7 +28,3 @@ export const MyVersion = () => {
 		
 }
 
-/*
-import tsgif from "./taylor_swift.gif"
-<><div className="main-image"><img src={tsgif} /></div></>
-*/
