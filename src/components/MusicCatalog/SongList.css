@@ -1,5 +1,6 @@
-body {
-    
+.song_list_page {
+    background-image: url(../backgroundpaper.jpg); 
+    background-size: cover;    
 }
 
 .songs{
@@ -12,25 +13,60 @@ body {
     margin: 5px;
 }
 
-.title {
+.page_title_songList {
+    /* display: flex;
+    flex-direction: column;
+    align-content: center; */
     text-align: center;
+    font-weight: bold;
+    font-size: large;
+    width: 30%;
+    background-color: #190002;
+    color: #F5F2EE;
+    box-shadow:1px 6px 4px -6px #190002;
+    position: relative;
+    margin:1.5rem;
+    border-radius: 100px 63px 225px 75px/30px 300px 75px 300px;
+    transform: rotate(-.5deg);
+    
 }
 
+.songlist_tape {
+    position:absolute;
+    width:8rem;
+    height:2rem;
+    min-width:1px;
+    min-height:1px;
+    background-color:gray;
+    opacity:0.3;
+    z-index:3;
+    text-align:center;
+    line-height:2em;
+    margin:auto;
+    -webkit-box-shadow:0px 0px 1px gray;
+    -moz-box-shadow:0px 0px 1px gray;
+    box-shadow:0px 0px 1px gray;
+    border-left:2px dashed rgba(0,0,0,0.3);
+    border-right:2px dashed rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    transform: rotate(2deg);
+    
+}    
+ 
+
 .album {
-    /* display:inline-block; */
     margin-bottom: 10px;
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     padding:1em;
     line-height:1.5em;
     background:#F5F2EE;
-    border:solid 5px#190002
-    ;
+    border:solid 5px#190002;
     width: 70%
 }
 
 .albums {
     padding: 10px;
-    margin: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,11 +75,15 @@ body {
 .tagList {
     display: flex;
     justify-content: left;
-    font-size: smaller;
+    
 }
 
 .albumTitle {
     text-align: left;
     padding-left: 10px;
+}
+
+.song_artistName {
+    font-weight: bold;
 }
 

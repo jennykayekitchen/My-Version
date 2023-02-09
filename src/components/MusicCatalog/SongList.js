@@ -49,8 +49,10 @@ export const SongList = () => {
       }, []);
     
     //renders the list of all songs
-    return <div className="albums">
-            <div className="title"><h2>Music Catalog</h2></div>
+    return <div className="song_list_page">
+            <div className="albums">
+            <div className="page_title_songList"><h2>Music Catalog</h2></div>
+                <em className="songlist_tape"></em>
             {/* maps through each song and creates props for the info to be passed to song.js which will then deconstruct the 
             info to populate each song */}
             
@@ -71,6 +73,7 @@ export const SongList = () => {
                         </div>
                     </div>
             ))}
+            </div>
             </div>
             
         

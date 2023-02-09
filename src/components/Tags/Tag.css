@@ -1,0 +1,68 @@
+.tag_page {
+    background-image: url(../backgroundpaper.jpg); 
+    background-size: cover;  
+    height: 1000px;  
+}
+
+.tagForm{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    font-weight: bold;
+}
+
+.tagFormOptions{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:#F5F2EE;
+    border:solid 5px#190002;
+    width: 70%;
+    
+}
+
+.page_title_tagForm {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    width: 30%;
+    background-color: #190002;
+    color: #F5F2EE;
+    box-shadow:1px 6px 4px -6px #190002;
+    position: relative;
+    margin:2.5rem;
+    border-radius: 50px 40px 200px 75px/30px 300px 50px 300px;
+    transform: rotate(-.3deg);
+}
+
+.tape {
+    position:absolute;
+    width:8rem;
+    height:2rem;
+    min-width:1px;
+    min-height:1px;
+    background-color:gray;
+    opacity:0.3;
+    z-index:3;
+    text-align:center;
+    line-height:2em;
+    margin:1rem;
+    -webkit-box-shadow:0px 0px 1px gray;
+    -moz-box-shadow:0px 0px 1px gray;
+    box-shadow:0px 0px 1px gray;
+    border-left:2px dashed rgba(0,0,0,0.2);
+    border-right:2px dashed rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    transform: rotate(2deg);
+    
+}    
+
+
+

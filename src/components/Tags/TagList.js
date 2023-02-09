@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Tag } from "./Tag"
+import "./Tag.css"
 
 export const TagList = () => {
     //fetches all the tags and sets them tags
@@ -16,7 +17,8 @@ export const TagList = () => {
     )
     
     //sends the tag info as props to tag
-    return <div className="tags">
+    return <div className="tag_page">
+    <div className="tags">
         <h2>Currently Saved Tags</h2>
         {
             tags.map(tag => <Tag key={`tag--${tag.id}`}
@@ -24,5 +26,6 @@ export const TagList = () => {
                 tagIsFavorite = {tag.isFavorite}
                 />)    
         }
+    </div>
     </div>
 }
