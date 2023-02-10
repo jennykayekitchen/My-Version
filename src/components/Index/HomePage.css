@@ -4,5 +4,66 @@
     background-repeat: no-repeat;
     background-color: #180000;
     height: 1000px;
-     
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+  
+.card1, .card2, .card3 {
+    margin: 250px 60px 0px 60px;
+    text-align: center;
+    width: 250px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:#F5F2EE;
+    border:solid 5px #180000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 120px;
+    color: #180000;
+    box-shadow: 1px 1px 3px gray;
+    text-decoration: none;
+}
+
+.cardImage1 {
+    background-image: url(../arrow.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 75px;
+    width: 65px;
+}
+
+.cardWords1 {
+    margin-top: 15px;
+}
+
+.cardImage2 {
+    background-image: url(../checkmark.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 75px;
+    width: 75px;
+}
+
+.cardWords2 {
+    margin-top: 15px;
+}
+
+.cardImage3 {
+    background-image: url(../play.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 75px;
+    width: 51px;
+}
+
+.cardWords3 {
+    margin-top: 15px;
+}
+
