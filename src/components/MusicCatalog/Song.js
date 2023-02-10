@@ -32,18 +32,6 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
         []
     )
 
-    //function to handle what happens when a tag is checked or unchecked. if the song already has that tag, then it isn't added, 
-    //but if it doesn't have that tag a new array is created with any tag already there plus the new one
-    // const handleCheckboxChange = (event) => {
-    //     const newChosenTag = event.target.value
-    //     if (chosenTags.includes(newChosenTag)) {
-    //         setTaggedSongs(chosenTags.filter(tag=> tag !== newChosenTag))
-    //     }
-    //     else {
-    //         setTaggedSongs([...chosenTags, newChosenTag])
-    //     }
-    // }
-
     const handleSaveButtonClick = () => {
         // get the checked tag values
         const checkedTags = Array.from(document.querySelectorAll("input[type='checkbox']:checked"))
@@ -71,18 +59,22 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
         getTaggedSongs()
     }
 
-    //when the delete button is clicked, the tagged song is deleted from the database, then it rerenders and the user
-    //can select a new tag
     const handleDeleteButtonClick = () => {
-        
-        return fetch(`http://localhost:8088/taggedSongs/${chosenTags[0].id}`, {
-            method: "DELETE"
-
-        })
-            .then (() => {
-                setChosenTags([])
-            })          
-    }
+        //maps over the chosenTags array and pulls out the id (or ids if the song has multiple tags) for each taggedSong object for that song
+        const taggedSongsToDelete = chosenTags.map(taggedSong => taggedSong.id);
+        //maps over that array of taggedSong ids to create a list of delete requests/fetch calls that need to be made 
+        const requests = taggedSongsToDelete.map(id => {
+            return fetch(`http://localhost:8088/taggedSongs/${id}`, {
+                method: "DELETE"
+            });
+        });
+        //Promise.all is used to wait for all of the deletes to happen
+        Promise.all(requests)
+        .then(() => {
+                //sets chosenTags back to an empty array so that the checkboxes and save button comes back 
+                setChosenTags([]);
+            });
+    };
     
     return <>
     <div className="song">

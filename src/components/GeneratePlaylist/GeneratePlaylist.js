@@ -50,16 +50,29 @@ export const GeneratePlaylist = () => {
     const handleGeneratePlaylistButton = (event) => {
         event.preventDefault();
         const selectedTags = [];
-        const checkboxes = event.target.parentNode.querySelectorAll("input[type=checkbox]:checked");
-        checkboxes.forEach(checkbox => {
-            selectedTags.push(parseInt(checkbox.value));
+        const playlistCheckboxes = event.target.parentNode.querySelectorAll("input[type=checkbox]:checked");
+            playlistCheckboxes.forEach(checkbox => {
+                selectedTags.push(parseInt(checkbox.value));
         })
         setChosenTags(selectedTags);
+
+        const checkboxes = document.querySelectorAll("input[type=checkbox]");
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
     }
 
-    return (
+    const handleClearPlaylistButton = (event) => {
+        setChosenTags([])
+    }
+
+    return <>
         <div className="playlist_page">
-        <h2>Generate a Playlist Based on Mood</h2>            
+        <div className="playlist_items">
+        <div className="page_title_playlist"><h2>Generate a Playlist</h2></div>        
+        <em className="playlist_tape"></em>
+            <div className="playlist_form">
+            <div className="playlist_tags">
             {tags.map(
                 (tag) => {
                     return (
@@ -75,25 +88,34 @@ export const GeneratePlaylist = () => {
                                 setChosenTags(updatedTags);
                                 }}
                         />
-        <label htmlFor={tag.name}>{tag.name}</label>
+                        <label htmlFor={tag.name}>{tag.name}</label>
       </div>
-    );
-  }
-)}
+
+                    )}
+        )}
+        </div>
+            
             <button onClick={(clickEvent) => handleGeneratePlaylistButton(clickEvent)}
                     className="btn btn-primary">Generate Playlist</button>
+            <button onClick={(clickEvent) => handleClearPlaylistButton(clickEvent)}
+                    className="btn btn-primary">Clear Playlist</button>
+                </div>
+                </div>
                 
             
-        <h2>List of Songs</h2>
+        <div className="list_of_songs">
+        <div className="listOfSongs_title"><h2>List of Songs</h2></div>
+        <em className="listOfSongs_tape"></em>
             <div className="filteredSongs">
             <ul>
                 {filteredSongs.map((filteredSong) => 
-                <div className="filteredSong" key={`filteredsong--${filteredSong.id}`}><li>{filteredSong?.song?.songName} by {filteredSong?.song?.artist}</li></div>
+                <div className="filteredSong" key={`filteredsong--${filteredSong.id}`}><li>{filteredSong?.song?.songName} by {filteredSong?.song?.artist} from the album {filteredSong?.song?.albumName}</li></div>
                 )}
             </ul>
             </div>
         </div>
-    )
+        </div>
+    </>
 }
 
 /*DROP DOWN FOR PLAYLIST

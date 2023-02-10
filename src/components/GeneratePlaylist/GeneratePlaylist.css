@@ -2,4 +2,122 @@
     background-image: url(../backgroundpaper.jpg); 
     background-size: cover;  
     height: 1000px;  
+    margin: 0;
+}
+
+.page_title_playlist {
+    background-color: #150000;
+    color:#F5F2EE;
+    padding: 2em;
+    margin:2rem;
+    border-radius: 600px 25px 20px 75px/30px 30px 100px 300px;
+    transform: rotate(.5deg);
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    box-shadow:1px 6px 4px -6px #190002;
+}   
+.playlist_tape {
+    position:absolute;
+    width:8rem;
+    height:2rem;
+    min-width:1px;
+    min-height:1px;
+    background-color:gray;
+    opacity:0.3;
+    z-index:3;
+    text-align:center;
+    line-height:2em;
+    margin:.5rem;
+    -webkit-box-shadow:0px 0px 1px gray;
+    -moz-box-shadow:0px 0px 1px gray;
+    box-shadow:0px 0px 1px gray;
+    border-left:2px dashed rgba(0,0,0,0.3);
+    border-right:2px dashed rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    transform: rotate(-2deg);
+    
+}    
+h2 {
+    margin: 0;
+}
+
+.playlist_items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.playlist_form {
+    margin-bottom: 10px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:#F5F2EE;
+    border:solid 5px#190002;
+    
+}
+.playlist_tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+.playlist_buttons {
+    display: flex;  
+    justify-content: flex-start;
+}
+
+.list_of_songs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listOfSongs_title {
+    background-color: #150000;
+    color:#F5F2EE;
+    padding: 2em;
+    margin:2rem;
+    border-radius: 300px 25px 20px 75px/30px 100px 200px 30px;
+    transform: rotate(1deg);
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    box-shadow:1px 6px 4px -6px #190002;
+}
+
+.filteredSongs {
+    margin-bottom: 10px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:#F5F2EE;
+    border:solid 5px#190002;
+    width: 70%
+}
+
+.listOfSongs_tape {
+    position:absolute;
+    width:8rem;
+    height:2rem;
+    min-width:1px;
+    min-height:1px;
+    background-color:gray;
+    opacity:0.3;
+    z-index:3;
+    text-align:center;
+    line-height:2em;
+    margin:.5rem;
+    -webkit-box-shadow:0px 0px 1px gray;
+    -moz-box-shadow:0px 0px 1px gray;
+    box-shadow:0px 0px 1px gray;
+    border-left:2px dashed rgba(0,0,0,0.3);
+    border-right:2px dashed rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    transform: rotate(-3deg);
 }

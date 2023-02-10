@@ -1,7 +1,8 @@
 .tag_page {
     background-image: url(../backgroundpaper.jpg); 
     background-size: cover;  
-    height: 1000px;  
+    height: 1000px;
+    margin: 0;  
 }
 
 .tagForm{
@@ -37,6 +38,7 @@
     box-shadow:1px 6px 4px -6px #190002;
     position: relative;
     margin:2.5rem;
+    padding: 2rem;
     border-radius: 50px 40px 200px 75px/30px 300px 50px 300px;
     transform: rotate(-.3deg);
 }
@@ -60,9 +62,40 @@
     border-right:2px dashed rgba(0,0,0,0.2);
     border-top: 1px solid rgba(0,0,0,0.2);
     border-bottom: 1px solid rgba(0,0,0,0.2);
-    transform: rotate(2deg);
+    transform: rotate(-2deg);
     
-}    
+}
+
+.page_title_manage_tags {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    width: 30%;
+    background-color: #190002;
+    color: #F5F2EE;
+    box-shadow:1px 6px 4px -6px #190002;
+    margin: 2rem; 
+    padding: 2em;
+    border-radius: 50px 40px 200px 75px/30px 300px 50px 300px;
+    transform: rotate(-1.5deg);
+}
+
+.tags {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:#F5F2EE;
+    border:solid 5px#190002;
+    width: 70%;
+}
+
+.manage_tags {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
 
 
 

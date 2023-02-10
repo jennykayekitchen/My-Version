@@ -26,6 +26,7 @@
     box-shadow:1px 6px 4px -6px #190002;
     position: relative;
     margin:1.5rem;
+    padding: 2rem;
     border-radius: 100px 63px 225px 75px/30px 300px 75px 300px;
     transform: rotate(-.5deg);
     
