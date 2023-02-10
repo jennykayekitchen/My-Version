@@ -81,21 +81,29 @@
 }
 
 .tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tag {
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     padding:1em;
     line-height:1.5em;
     background:#F5F2EE;
     border:solid 5px#190002;
     width: 70%;
+    margin-bottom: 2rem;
 }
 
 .manage_tags {
-    margin: 2rem;
+    margin: 0rem;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
 }
 
-
+.taglabel {
+    font-weight: bold;
+}
 

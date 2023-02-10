@@ -14,6 +14,7 @@ export const NewTagForm = () => {
     const [tag, update] = useState({
         "name": "",
         "userId": null,
+        "description": "",
         "isFavorite": false
 
     })
@@ -26,6 +27,7 @@ export const NewTagForm = () => {
         const tagToSendToAPI = {
             name: tag.name,
             userId: myVersionUserObject.id,
+            description: tag.description,
             isFavorite: tag.isFavorite
         }
         //POST fetch call that sends the tag object to save in the database then navigates back to the list of tags when that's done
@@ -51,7 +53,7 @@ export const NewTagForm = () => {
             <div className="tagFormOptions">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="tagName">Mood Name:</label>
+                    <label htmlFor="tagname"><div className="taglabel">Mood Name:</div></label>
                     {/* creates text box for user to input the name of their tag, then assigns that as tag.name */}
                     <input
                         required autoFocus
@@ -70,8 +72,27 @@ export const NewTagForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
+                    <label htmlFor="tagdescription"><div className="taglabel">Mood Description:</div></label>
+                    {/* creates text box for user to input the name of their tag, then assigns that as tag.name */}
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Describe your mood."
+                        value={tag.description}
+                        onChange={
+                            (event) => {
+                                const copy = {...tag}
+                                copy.description = event.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
                     {/* creates checkbox for user to click if the tag is a favorite, then assigns true or false as tag.favorite */}
-                    <label htmlFor="favorite">Favorite:</label>
+                    <label htmlFor="tagfavorite"><div className="taglabel">Favorite:</div></label>
                     <input type="checkbox"
                         value={tag.favorite}
                         onChange={
