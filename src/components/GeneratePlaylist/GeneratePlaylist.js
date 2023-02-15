@@ -25,12 +25,27 @@ export const GeneratePlaylist = () => {
     []
     )
     
+    //array that keeps track of which tags have been selected by the user to filter the playlist 
+    //starts as an empty array.
     const [chosenTags, setChosenTags] = useState([]);
 
+    //array that will contain the filtered list of songs based on the tags selected by the user
     const [filteredSongs, setFilteredSongs] = useState([])
     useEffect(
         () => {
+            // empty array that will temporarily hold the list of songs before removing duplicates
             const playlistWithDups = []
+            /*The first loop iterates over each song that has a tag (taggedSongs array) and checks whether the tagId 
+            of that song matches the first tag that user seleted for the playlist. 
+            If it does, it pushes that song into a new array called playlistWithDups.
+
+            The loop also iterates over each song that has a tag and checks whether:
+            1. the tagId of that song matches the other tags the user chose for the playlist and 
+            2. whether the songId matches the songId of any otherTaggedSong. 
+            If it does, it pushes that song into the playlistWithDups array.
+
+            Otherwise it simply pushes the current song into the playlistWithDups array if it matches the first tag the user picked.
+            */
             taggedSongs.forEach(taggedSong => {
                 taggedSongs.forEach(otherTaggedSong =>{
                     if (taggedSong.tagId === chosenTags[0] && otherTaggedSong.tagId === chosenTags[1] && taggedSong.songId === otherTaggedSong.songId) {
@@ -41,7 +56,9 @@ export const GeneratePlaylist = () => {
                     }
                 })                
             })
+            //playListWithDups is then converted into a set called playlist which removes any duplicate songs in the list. 
             const playlist = [...new Set(playlistWithDups)]
+            //Then this list of songs is set as the value of the filteredSongs state variable.
             setFilteredSongs(playlist)
         },
         [chosenTags, taggedSongs]
@@ -49,13 +66,20 @@ export const GeneratePlaylist = () => {
 
     const handleGeneratePlaylistButton = (event) => {
         event.preventDefault();
+        //empty array that will hold the tagIds that the users checks
         const selectedTags = [];
+
+        //finds all the checkboxes that are checked and puts them in playlistCheckboxes
         const playlistCheckboxes = event.target.parentNode.querySelectorAll("input[type=checkbox]:checked");
+            //loops over the playlistCheckboxes pushes the value (tagId) of each checkbox to selectedTags after converting it to an integer
             playlistCheckboxes.forEach(checkbox => {
                 selectedTags.push(parseInt(checkbox.value));
         })
+        //updates the chosenTags state to be the tags the user checked
         setChosenTags(selectedTags);
 
+        //finds all the checkboxes in the form and unchecks them, so that the user can select a new set of tags and 
+        //generate a new playlist without having to manually uncheck the previous tags
         const checkboxes = document.querySelectorAll("input[type=checkbox]");
             checkboxes.forEach(checkbox => {
                 checkbox.checked = false;
@@ -63,6 +87,7 @@ export const GeneratePlaylist = () => {
     }
 
     const handleClearPlaylistButton = (event) => {
+        //clears the chosenTags state, which is the list of songs in the playlist
         setChosenTags([])
     }
 
@@ -118,72 +143,3 @@ export const GeneratePlaylist = () => {
     </>
 }
 
-/*DROP DOWN FOR PLAYLIST
-import React, { useState, useEffect } from "react";
-
-export const GeneratePlaylist = () => {
-    //gets the user info
-    const localMyVersionUser = localStorage.getItem("my_version_user")
-    const myVersionUserObject = JSON.parse(localMyVersionUser)
-    
-    //fetch tags, and taggedSongs (for that user) and set state for each
-    
-    const [tags, setTags] = useState([]);
-    const [taggedSongs, setTaggedSongs] = useState([]);
-    useEffect(() => {    
-        fetch('http://localhost:8088/tags')
-        .then((res) => res.json())
-        .then((data) => {
-            setTags(data)
-        })
-        
-        fetch(`http://localhost:8088/taggedSongs?userId=${myVersionUserObject.id}&_expand=song`)
-        .then((res) => res.json())
-        .then((data) => {
-            setTaggedSongs(data)
-        })
-    }, 
-    []
-    )
-    
-    //gets the id of the tag that the user selected from the dropdown and sets the chosenTag state to that, it's just the number of the tagId
-    const [chosenTag, setChosenTag] = useState({});
-    
-    //maps through each tagged song , and for each tagged song it runs the tagId against the chosenTag id and puts the tagged song that has the song info expanded
-    //into the filteredTaggedSongs array then that is set to filteredSongs. 
-    //this happens when the state of chosenTag is updated (ie someone selects a filter)
-    const [filteredSongs, setFilteredSongs] = useState([])
-    useEffect(
-        () => {
-            const filteredTaggedSongs = 
-                taggedSongs.filter((taggedSong) => chosenTag === taggedSong.tagId)
-            setFilteredSongs(filteredTaggedSongs)
-        },
-        [chosenTag]
-    )
-    
-    return (
-        <div>
-        <h2>Generate a Playlist Based on Your Mood</h2>
-            dropdown list of the user's tags and when one is selected it sets chosenTag to that parseInt tag.id 
-            <select onChange={(event) => setChosenTag(parseInt(event.target.value))}>
-                <option value={0}>Select a Mood</option>
-                {tags.map((tag) => (
-                <option key={tag.id} value={tag.id}>
-                    {tag.name}
-                </option>
-                ))}
-            </select>
-        <h2>List of Songs</h2>
-            <div className="filteredSongs">
-            <ul>
-            maps through each filtered song to list out the song name 
-                {filteredSongs.map((filteredSong) => 
-                <div className="filteredSong" key={filteredSong.id}><li>{filteredSong?.song?.songName} by {filteredSong?.song?.artist}</li></div>
-                )}
-            </ul>
-            </div>
-        </div>
-    );
-};
-*/

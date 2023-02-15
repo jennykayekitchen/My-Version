@@ -4,26 +4,15 @@
 
 /*Typography
 --------------------------------------------------------------*/
-/* body {
-  background-image: url(backgroundpaper.jpg);
-  background-image: url(taylor_swift.gif);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #160000;
-} */
 
-button,
 input,
 select,
-textarea {
-  color: #190002;
-  font-family: 'Truculenta', sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-}
 
 body {
   font-family: 'Truculenta', sans-serif;
+  color: #150000;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,22 +36,19 @@ p {
 }
 
 button {
-  background:transparent;
+  background: #150000;
   padding:0.2rem 0.2rem;
   margin:0 0.5rem;
-  font-size:1rem;
-  font-weight: bold;
-  color: #190002;
-
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 15px;
-  border-bottom-left-radius:15px 255px;
-  border:solid 3px #190002;
+  border-radius: 5px;
+  font-size:16px;
+  font-family: 'Truculenta', sans-serif;
+  color: #F5F2EE;
+  text-align: center;
+  
 }
 
 button:hover{
-box-shadow:2px 8px 4px -6px #190002;
+box-shadow:2px 8px 4px -6px #150000;
 }
 
 
