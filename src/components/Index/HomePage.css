@@ -1,4 +1,4 @@
-.home_page{
+.home_page {
     background-image: url(../taylor_swift.gif);
     background-size: cover;
     background-repeat: no-repeat;
@@ -6,14 +6,14 @@
     height: 1000px;
 }
 
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-}
+} */
   
-.card1, .card2, .card3 {
+/* .card1, .card2, .card3 {
     margin: 250px 60px 0px 60px;
     text-align: center;
     width: 250px;
@@ -66,4 +66,4 @@
 .cardWords3 {
     margin-top: 15px;
 }
-
+ */

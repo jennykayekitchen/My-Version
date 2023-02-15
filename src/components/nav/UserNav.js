@@ -13,13 +13,13 @@ export const UserNav = () => {
                 <h1 className="logo"><a href="/">My Version</a></h1>
                 <ul className="main-nav">
                     <li className="navbar__item active">
-                        <Link className="navbar__link" to="/musiccatalog">Browse Music</Link>
-                    </li>
-                    <li className="navbar__item active">
                         <Link className="navbar__link" to="/addtag">Create a Mood</Link>
                     </li>
                     <li className="navbar__item active">
                         <Link className="navbar__link" to="/managetags">Manage Moods</Link>
+                    </li>
+                    <li className="navbar__item active">
+                        <Link className="navbar__link" to="/musiccatalog">Browse Music</Link>
                     </li>
                     <li className="navbar__item active">
                         <Link className="navbar__link" to="/generateplaylist">Generate Playlist</Link>

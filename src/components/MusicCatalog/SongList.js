@@ -9,7 +9,7 @@ export const SongList = () => {
     const [songs, setSongs] = useState([])
     useEffect(
         () => {
-            fetch(`http://localhost:8088/songs`)
+            fetch(`http://localhost:8088/songs?_sort=albumNumber`)
                 .then(response => response.json())
                 .then((data) => {
                     setSongs(data)
@@ -57,7 +57,7 @@ export const SongList = () => {
             info to populate each song */}
             
                 {albumSongs.map(album => (
-                    <div className="album">
+                    <div className="album" key={album.id}>
                         <div className={"albumTitle"}><h2>{album.albumName}</h2></div>
                             <div className={`album__${album.albumNumber}`}>
                                 {/* <div className={`albumPicture__${album.albumNumber}`}></div> */}

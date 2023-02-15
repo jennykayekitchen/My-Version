@@ -61,7 +61,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
 
     const handleDeleteButtonClick = () => {
         //maps over the chosenTags array and pulls out the id (or ids if the song has multiple tags) for each taggedSong object for that song
-        const taggedSongsToDelete = chosenTags.map(taggedSong => taggedSong.id);
+        const taggedSongsToDelete = chosenTags.map(taggedSong => taggedSong.id)
         //maps over that array of taggedSong ids to create a list of delete requests/fetch calls that need to be made 
         const requests = taggedSongsToDelete.map(id => {
             return fetch(`http://localhost:8088/taggedSongs/${id}`, {
@@ -79,8 +79,8 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
     return <>
     <div className="song">
                     {featuringName === ""
-                        ? <><div className="song_artistName">{songName} by {artist}</div></>
-                        : <><div className="song_artistName">{songName} by {artist} featuring {featuringName}</div></>
+                        ? <><div key={songId} className="song_artistName">{songName} by {artist}</div></>
+                        : <><div key={songId} className="song_artistName">{songName} by {artist} featuring {featuringName}</div></>
                     }
                     {chosenTags.length
                         ? <><div className="currentTag">Current Mood: <ul>{chosenTags.map(

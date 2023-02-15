@@ -24,9 +24,13 @@ export const TagList = () => {
         <div className="tags">
         {
             tags.map(tag => <Tag key={`tag--${tag.id}`}
+                tags = {tags}
+                setTags = {setTags}
+                tagId = {tag.id}    
                 tagName = {tag.name}
                 tagIsFavorite = {tag.isFavorite}
                 tagDescription = {tag.description}
+
                 />)    
         }
         </div>
