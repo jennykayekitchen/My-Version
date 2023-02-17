@@ -15,7 +15,6 @@ export const NewTagForm = () => {
         "name": "",
         "userId": null,
         "description": "",
-        "isFavorite": false
 
     })
 
@@ -28,7 +27,6 @@ export const NewTagForm = () => {
             name: tag.name,
             userId: myVersionUserObject.id,
             description: tag.description,
-            isFavorite: tag.isFavorite
         }
         //POST fetch call that sends the tag object to save in the database then navigates back to the list of tags when that's done
         return fetch(`http://localhost:8088/tags`, {
@@ -84,21 +82,6 @@ export const NewTagForm = () => {
                             (event) => {
                                 const copy = {...tag}
                                 copy.description = event.target.value
-                                update(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    {/* creates checkbox for user to click if the tag is a favorite, then assigns true or false as tag.favorite */}
-                    <label htmlFor="tagfavorite"><div className="taglabel">Favorite:</div></label>
-                    <input type="checkbox"
-                        value={tag.favorite}
-                        onChange={
-                            (event) => {
-                                const copy = {...tag}
-                                copy.isFavorite = event.target.checked
                                 update(copy)
                             }
                         } />

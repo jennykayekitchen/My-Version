@@ -29,10 +29,15 @@ export const Login = () => {
     }
 
     return (
+        <div className="login-page">
+        <div className="nav">
+            <h1 className="logo"><a href="/">My Version</a></h1>
+        </div>
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>My Version</h1>
+                    
+                    <div className="loginFields">
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -48,12 +53,14 @@ export const Login = () => {
                             Sign in
                         </button>
                     </fieldset>
+                    </div> 
                 </form>
             </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
+        </div>
     )
 }
 

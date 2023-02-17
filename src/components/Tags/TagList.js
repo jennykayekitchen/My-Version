@@ -28,7 +28,6 @@ export const TagList = () => {
                 setTags = {setTags}
                 tagId = {tag.id}    
                 tagName = {tag.name}
-                tagIsFavorite = {tag.isFavorite}
                 tagDescription = {tag.description}
 
                 />)    

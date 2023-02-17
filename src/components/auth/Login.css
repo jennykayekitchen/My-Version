@@ -43,6 +43,10 @@ fieldset {
 
 .container--login {
     text-align: center;
+    background-image: url(./../backgroundpaper.jpg);
+    color: #150000;
+    height:700px;
+    padding-top: 100px;
 }
 
 .form--login {
@@ -50,9 +54,7 @@ fieldset {
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
+
 }
 
 .button--close {
@@ -60,3 +62,33 @@ fieldset {
     bottom: -2rem;
 }
 
+.loginFields {
+    background-color: hsla(0, 0%, 100%, 0.288);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.nav {
+    display: flex; /* 1 */
+    justify-content: space-between; /* 2 */
+    padding: 0rem 4rem 0rem 4rem; /* 3 */
+    background: #150000; /* 4 */
+    align-content: center;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 0.2);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;  
+}
+
+.logo {
+    margin: 0;
+    font-size: 2.7em;
+    color: #F5F2EE
+}
+
+a {
+    color: #150000;
+    
+}
