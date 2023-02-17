@@ -53,11 +53,8 @@ export const SongList = () => {
             <div className="albums">
             <div className="page_title_songList"><h2>Music Catalog</h2></div>
                 <em className="songlist_tape"></em>
-            {/* maps through each song and creates props for the info to be passed to song.js which will then deconstruct the 
-            info to populate each song */}
-            
                 {albumSongs.map(album => (
-                    <div className="album" key={album.id}>
+                    <div className="album" key={`album--${album.albumNumber}`} id={`album--${album.albumNumber}`}>
                         <div className={"albumTitle"}><h2>{album.albumName}</h2></div>
                             <div className={`album__${album.albumNumber}`}>
                                 {/* <div className={`albumPicture__${album.albumNumber}`}></div> */}

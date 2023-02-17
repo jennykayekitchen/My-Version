@@ -85,6 +85,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 50%;
 }
 .tag {
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -92,7 +93,7 @@
     line-height:1.5em;
     background:#F5F2EE;
     border:solid 5px#150000;
-    width: 70%;
+    width: 50%;
     margin-bottom: 2rem;
     box-shadow:2px 8px 4px #150000;
 }
@@ -109,3 +110,12 @@
     font-weight: bold;
 }
 
+.tagInput {
+    margin: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0px 0px 0px;
+}
