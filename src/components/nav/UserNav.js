@@ -10,7 +10,7 @@ export const UserNav = () => {
     return (
         <>
             <div className="nav">
-                <h1 className="logo"><a href="/">My Version</a></h1>
+                <h1 className="logo"><Link className="navbar__link" to="/">My Version</Link></h1>
                 <ul className="main-nav">
                     <li className="navbar__item active">
                         <Link className="navbar__link" to="/addtag">Create a Mood</Link>

@@ -14,12 +14,12 @@ My Version is an app that gives users the ability to assign one or more “moods
 
 
 ## Demo
-- Create moods
-![](createtag.gif)
-- Add moods to songs
-![](tagsongs.gif)
+- Create, edit and delete moods
+![](createmoods.gif)
+- Add and remove moods to songs
+![](savemoods.gif)
 - Generate playlist based on moods
-![](tagsongs.gif)
+![](generateplaylist.gif)
 
 
 ## Tech Stack
