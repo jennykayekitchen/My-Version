@@ -1,6 +1,6 @@
 .song_list_page {
     background-image: url(../backgroundpaper.jpg); 
-       
+    background-repeat: repeat;   
 }
 
 .songs{
@@ -8,19 +8,15 @@
 }
 
 .song {
-    /* border: 1px black solid; */
     padding-bottom: 1px;
     margin: 5px;
 }
 
 .page_title_songList {
-    /* display: flex;
-    flex-direction: column;
-    align-content: center; */
     text-align: center;
     font-weight: bold;
     font-size: large;
-    width: 30%;
+    /* width: 30%; */
     background-color: #180000;
     color: #F5F2EE;
     box-shadow:1px 6px 4px -6px #180000;
@@ -63,7 +59,6 @@
     line-height:1.5em;
     background:#F5F2EE;
     border:solid 5px #180000;
-    width: 70%;
     box-shadow:2px 8px 4px #150000;
 }
 
@@ -76,9 +71,12 @@
 
 .tagList {
     display: flex;
-    justify-content: left;
+    justify-content: left;   
     
-    
+}
+
+.individualTag {
+    margin-right: 5px;
 }
 
 .albumTitle {

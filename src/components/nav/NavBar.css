@@ -29,11 +29,11 @@
 }
 
 .navbar__item {
-    padding-left: 1rem;
+    padding-left: 2rem;
     
 }
 
-a, a:visited {
+.navbar__link, .navbar__link:visited {
     color: #F5F2EE
 }
 
@@ -41,7 +41,7 @@ a {
     position: relative;
 }
   
-a::before {
+.navbar__link::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -55,27 +55,27 @@ a::before {
     transition: transform .3s ease-in-out;
 }
   
-a:hover::before {
+.navbar__link:hover::before {
     transform-origin: left;
     transform: scaleX(1);
 }
 
-a:link { 
+.navbar__link:link { 
     text-decoration: none; 
 }
 
 
-a:visited { 
+.navbar__link:visited { 
     text-decoration: none; 
 }
 
 
-a:hover { 
+.navbar__link:hover { 
     text-decoration: none; 
 }
 
 
-a:active { 
+.navbar__link:active { 
     text-decoration: none; 
 }
 

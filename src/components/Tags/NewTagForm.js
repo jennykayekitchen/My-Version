@@ -57,7 +57,7 @@ export const NewTagForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Enter mood name."
+                        placeholder="What's the vibe?"
                         value={tag.name}
                         onChange={
                             (event) => {
@@ -76,7 +76,7 @@ export const NewTagForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Describe your mood."
+                        placeholder="Use your words."
                         value={tag.description}
                         onChange={
                             (event) => {

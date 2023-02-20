@@ -17,7 +17,7 @@ export const TagList = () => {
     )
     
     //sends the tag info as props to tag
-    return <div className="tag_page">
+    return <div className="saved_tags">
     <div className="manage_tags">
         <em className="tape"></em>
         <div className="page_title_manage_tags"><h2>Currently Saved Moods</h2></div>

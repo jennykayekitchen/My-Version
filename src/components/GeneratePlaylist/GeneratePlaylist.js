@@ -35,23 +35,24 @@ export const GeneratePlaylist = () => {
         () => {
             // empty array that will temporarily hold the list of songs before removing duplicates
             const playlistWithDups = []
-            /*The first loop iterates over each song that has a tag (taggedSongs array) and checks whether the tagId 
-            of that song matches the first tag that user seleted for the playlist. 
-            If it does, it pushes that song into a new array called playlistWithDups.
 
-            The loop also iterates over each song that has a tag and checks whether:
-            1. the tagId of that song matches the other tags the user chose for the playlist and 
-            2. whether the songId matches the songId of any otherTaggedSong. 
-            If it does, it pushes that song into the playlistWithDups array.
+            // /*The first loop iterates over each song that has a tag (taggedSongs array) and checks whether the tagId 
+            // of that song matches the first tag that user seleted for the playlist. 
+            // If it does, it pushes that song into a new array called playlistWithDups.
 
-            Otherwise it simply pushes the current song into the playlistWithDups array if it matches the first tag the user picked.
-            */
+            // The loop also iterates over each song that has a tag and checks whether:
+            // 1. the tagId of that song matches the other tags the user chose for the playlist and 
+            // 2. whether the songId matches the songId of otherTaggedSong. 
+            // If it does, it pushes that song into the playlistWithDups array.
+
+            // Otherwise, if there is only one tag seleted pushes that song into the playlistWithDups array.
+            // */
             taggedSongs.forEach(taggedSong => {
                 taggedSongs.forEach(otherTaggedSong =>{
                     if (taggedSong.tagId === chosenTags[0] && otherTaggedSong.tagId === chosenTags[1] && taggedSong.songId === otherTaggedSong.songId) {
                         playlistWithDups.push(taggedSong)                                
                     }
-                    else if (taggedSong.tagId === chosenTags[0]) {
+                    else if (chosenTags.length === 1 && taggedSong.tagId === chosenTags[0]) {
                         playlistWithDups.push(taggedSong)
                     }
                 })                
@@ -97,6 +98,7 @@ export const GeneratePlaylist = () => {
         <div className="page_title_playlist"><h2>Generate a Playlist</h2></div>        
         <em className="playlist_tape"></em>
             <div className="playlist_form">
+                Pick up to two moods to generate a playlist.
             <div className="playlist_tags">
             {tags.map(
                 (tag) => {
@@ -129,7 +131,7 @@ export const GeneratePlaylist = () => {
                 
             
         <div className="list_of_songs">
-        <div className="listOfSongs_title"><h2>List of Songs</h2></div>
+        <div className="listOfSongs_title"><h2>Your Perfect Playlist</h2></div>
         <em className="listOfSongs_tape"></em>
             <div className="filteredSongs">
             <ul>

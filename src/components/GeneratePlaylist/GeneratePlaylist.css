@@ -1,7 +1,8 @@
 .playlist_page {
     background-image: url(../backgroundpaper.jpg); 
     background-size: cover;  
-    background-repeat: repeat; 
+    background-repeat: repeat;
+    /* height: 800px;  */
     margin: 0;
 }
 

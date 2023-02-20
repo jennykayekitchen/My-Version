@@ -3,6 +3,15 @@
     background-size: cover;  
     height: 1000px;
     margin: 0;  
+    background-repeat: repeat;
+}
+
+.saved_tags {
+    background-image: url(../backgroundpaper.jpg); 
+    background-size: cover;  
+    /* height: 1000px; */
+    margin: 0;  
+    background-repeat: repeat;
 }
 
 .tagForm{
@@ -11,8 +20,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto; 
 }
 
 .form-group {
@@ -33,7 +41,7 @@
     text-align: center;
     font-weight: bold;
     font-size: large;
-    width: 30%;
+    /* width: 30%; */
     background-color: #150000;
     color: #F5F2EE;
     box-shadow:1px 6px 4px -6px #150000;
@@ -71,7 +79,7 @@
     text-align: center;
     font-weight: bold;
     font-size: large;
-    width: 30%;
+    /* width: 30%; */
     background-color: #150000;
     color: #F5F2EE;
     box-shadow:1px 6px 4px -6px #150000;
