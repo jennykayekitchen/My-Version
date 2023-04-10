@@ -22,7 +22,7 @@ My Version is an app that gives users the ability to assign one or more “moods
 ![](generateplaylist.gif)
 
 ## Wireframe
-![Wireframe](https://user-images.githubusercontent.com/114883885/230970032-bc74a2d7-975f-404f-8b4e-88f9382fc54f.png)
+![Wireframe](https://user-images.githubusercontent.com/114883885/230970372-d1cb9741-27e4-4763-9de1-a0a9ad888c7d.png)
 
 ## Tech Stack
 
