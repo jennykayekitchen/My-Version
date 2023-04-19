@@ -34,7 +34,9 @@ My Version is an app that gives users the ability to assign one or more “moods
 
 ## Installation
 
-Clone down this repository. You will need node and npm installed globally on your machine.
+- Clone down the [My Version API](https://github.com/jennykayekitchen/My-Version-API).
+- Clone down this repository.
+- Ensure node and npm are installed on your machine.
 
 ## Project Goals
 
