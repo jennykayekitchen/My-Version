@@ -88,7 +88,7 @@ export const Tag = ({ tags, setTags, tagId, tagName, tagDescription }) => {
                         </div>
                     <div className="tagInput">
                         <div className="taglabel">Description: </div>
-                            <input type="text" 
+                            <input className="tagDescription" type="text" 
                             value={editedTagDescription} 
                             onChange={handleTagDescriptionChange} />
                         </div>
