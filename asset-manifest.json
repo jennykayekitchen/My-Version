@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/my-version/static/css/main.a9580973.css",
+    "main.js": "/my-version/static/js/main.59f2f6ab.js",
+    "static/media/taylor_swift.gif": "/my-version/static/media/taylor_swift.4e61f91f4f617f3e7588.gif",
+    "static/media/backgroundpaper.jpg": "/my-version/static/media/backgroundpaper.b3736a311ce49ebdf3b5.jpg",
+    "index.html": "/my-version/index.html",
+    "main.a9580973.css.map": "/my-version/static/css/main.a9580973.css.map",
+    "main.59f2f6ab.js.map": "/my-version/static/js/main.59f2f6ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9580973.css",
+    "static/js/main.59f2f6ab.js"
+  ]
+}
