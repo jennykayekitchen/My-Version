@@ -10,7 +10,7 @@ export const Tag = ({ tags, setTags, tagId, tagName, tagDescription }) => {
 
     // when the delete button is clicked, the tag is deleted
     const handleDeleteButtonClick = () => {
-        return fetch(`http://localhost:8088/tags/${tagId}`, {
+        return fetch(`octopus-app-bcllm.ondigitalocean.app/users/tags/${tagId}`, {
             method: "DELETE"
         })
         .then (() => {
