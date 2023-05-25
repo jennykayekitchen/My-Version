@@ -9,7 +9,7 @@ export const SongList = () => {
     const [songs, setSongs] = useState([])
     useEffect(
         () => {
-            fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/songs?_sort=albumNumber`)
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/songs?_sort=albumNumber`)
                 .then(response => response.json())
                 .then((data) => {
                     setSongs(data)
@@ -22,7 +22,7 @@ export const SongList = () => {
     const [tags, setTags] = useState([])
     useEffect(
         () => {
-            fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/tags`)
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/tags`)
             .then(response =>response.json())
             .then((data) => {
                 setTags(data)

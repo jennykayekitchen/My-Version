@@ -33,7 +33,7 @@ export const Register = (props) => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        return fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/users?email=${user.email}`)
+        return fetch(`https://octopus-app-bcllm.ondigitalocean.app/users?email=${user.email}`)
             .then(res => res.json())
             .then(response => {
                 if (response.length > 0) {
