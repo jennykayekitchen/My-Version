@@ -10,7 +10,7 @@ export const Tag = ({ tags, setTags, tagId, tagName, tagDescription }) => {
 
     // when the delete button is clicked, the tag is deleted
     const handleDeleteButtonClick = () => {
-        return fetch(`octopus-app-bcllm.ondigitalocean.app/users/tags/${tagId}`, {
+        return fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/tags/${tagId}`, {
             method: "DELETE"
         })
         .then (() => {
@@ -30,7 +30,7 @@ export const Tag = ({ tags, setTags, tagId, tagName, tagDescription }) => {
             description: editedTagDescription,
         }
         // updates the database with the new info
-        return fetch(`http://localhost:8088/tags/${tagId}`, {
+        return fetch(`https://octopus-app-bcllm.ondigitalocean.app/tags/${tagId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

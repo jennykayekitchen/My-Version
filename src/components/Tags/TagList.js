@@ -7,7 +7,7 @@ export const TagList = () => {
     const [tags, setTags] = useState([])
     useEffect(
         () => {
-            fetch(`octopus-app-bcllm.ondigitalocean.app/users/tags`)
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/tags`)
             .then(response => response.json())
             .then((data) => {
                 setTags(data)

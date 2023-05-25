@@ -11,7 +11,7 @@ export const Register = (props) => {
     let navigate = useNavigate()
 
     const registerNewUser = () => {
-        return fetch("octopus-app-bcllm.ondigitalocean.app/users", {
+        return fetch("https://octopus-app-bcllm.ondigitalocean.app/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export const Register = (props) => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        return fetch(`octopus-app-bcllm.ondigitalocean.app/users/users?email=${user.email}`)
+        return fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/users?email=${user.email}`)
             .then(res => res.json())
             .then(response => {
                 if (response.length > 0) {
