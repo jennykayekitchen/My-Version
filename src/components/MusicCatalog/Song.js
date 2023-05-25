@@ -18,7 +18,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
     const [chosenTags, setChosenTags] =useState([])
 
         const getTaggedSongs = () => {
-            fetch(`octopus-app-bcllm.ondigitalocean.app/users/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&_expand=tag`)
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/taggedSongs?songId=${songId}&userId=${myVersionUserObject.id}&_expand=tag`)
             .then(response =>response.json())
             .then((data) => {
                 setChosenTags(data)
@@ -46,7 +46,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
     
         // post each new taggedSong to the server
         newTaggedSongs.forEach(taggedSongs => {
-            fetch(`octopus-app-bcllm.ondigitalocean.app/users/taggedSongs`, {
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/taggedSongs`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -64,7 +64,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
         const taggedSongsToDelete = chosenTags.map(taggedSong => taggedSong.id)
         //maps over that array of taggedSong ids to create a list of delete requests/fetch calls that need to be made 
         const requests = taggedSongsToDelete.map(id => {
-            return fetch(`octopus-app-bcllm.ondigitalocean.app/users/taggedSongs/${id}`, {
+            return fetch(`https://octopus-app-bcllm.ondigitalocean.app/users/taggedSongs/${id}`, {
                 method: "DELETE"
             });
         });
