@@ -29,7 +29,7 @@ export const NewTagForm = () => {
             description: tag.description,
         }
         //POST fetch call that sends the tag object to save in the database then navigates back to the list of tags when that's done
-        return fetch(`http://localhost:8088/tags`, {
+        return fetch(`octopus-app-bcllm.ondigitalocean.app/users/tags`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

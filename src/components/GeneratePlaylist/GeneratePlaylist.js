@@ -10,13 +10,13 @@ export const GeneratePlaylist = () => {
     const [tags, setTags] = useState([]);
     const [taggedSongs, setTaggedSongs] = useState([]);
     useEffect(() => {    
-        fetch('http://localhost:8088/tags')
+        fetch('octopus-app-bcllm.ondigitalocean.app/users/tags')
         .then((res) => res.json())
         .then((data) => {
             setTags(data)
         })
         
-        fetch(`http://localhost:8088/taggedSongs?userId=${myVersionUserObject.id}&_expand=song`)
+        fetch(`octopus-app-bcllm.ondigitalocean.app/users/taggedSongs?userId=${myVersionUserObject.id}&_expand=song`)
         .then((res) => res.json())
         .then((data) => {
             setTaggedSongs(data)
