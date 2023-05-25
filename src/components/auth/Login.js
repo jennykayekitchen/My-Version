@@ -10,7 +10,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch(`octopus-app-bcllm.ondigitalocean.app/users?email=${email}`)
+        return fetch(`https://octopus-app-bcllm.ondigitalocean.app/users?email=${email}`)
             .then(res => res.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
