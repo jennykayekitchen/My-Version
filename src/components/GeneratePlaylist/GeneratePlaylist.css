@@ -2,7 +2,7 @@
     background-image: url(../backgroundpaper.jpg); 
     background-size: cover;  
     background-repeat: repeat;
-    /* height: 800px;  */
+    height: 100vh;
     margin: 0;
 }
 
