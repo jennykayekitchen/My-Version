@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+
 import "./NavBar.css"
 
 export const UserNav = () => {
@@ -10,7 +11,7 @@ export const UserNav = () => {
     return (
         <>
             <div className="nav">
-                <h1 className="logo"><Link className="navbar__link" to="/">My Version</Link></h1>
+                <Link className="logo" to="/">My Version</Link>
                 <ul className="main-nav">
                     <li className="navbar__item active">
                         <Link className="navbar__link" to="/addtag">Create a Mood</Link>
@@ -24,7 +25,6 @@ export const UserNav = () => {
                     <li className="navbar__item active">
                         <Link className="navbar__link" to="/generateplaylist">Generate Playlist</Link>
                     </li>
-
                     {
                         localStorage.getItem("my_version_user")
                             ? <li className="navbar__item navbar__logout">
