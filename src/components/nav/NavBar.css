@@ -1,7 +1,9 @@
 .logo {
     margin: 0;
-    font-size: 2.7em;
-    color: #F5F2EE
+    font-size: 3em;
+    color: #F5F2EE;
+    font-family: 'Permanent Marker', sans-serif;
+    text-decoration: none;
 }
 
 .main-nav {
@@ -78,6 +80,61 @@ a {
 .navbar__link:active { 
     text-decoration: none; 
 }
+
+@media screen and (max-width: 600px) {
+    .main-nav {
+        display: none;
+      }
+    
+      .logo {
+        font-size: 2em;        
+      }
+    
+      .nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .nav .main-nav {
+        display: block;
+        width: 100%;
+      }
+    
+      .main-nav li {
+        padding: 1rem 0;
+        text-align: center;
+      }
+  }
+
+  @media screen and (max-width: 830px) {
+    .logo {
+      font-size: 1em;
+    }
+  
+    .main-nav {
+      font-size: .5em;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    .logo {
+      font-size: 1.75em;
+    }
+  
+    .main-nav {
+      font-size: .8em;
+    }
+  }
+  
+  @media screen and (max-width: 1270px) {
+    .logo {
+      font-size: 2em;
+    }
+  
+    .main-nav {
+      font-size: 1.2em;
+    }
+  }
 
 
   

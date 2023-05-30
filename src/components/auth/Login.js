@@ -31,7 +31,7 @@ export const Login = () => {
     return (
         <div className="login-page">
         <div className="nav">
-            <h1 className="logo"><a href="/">My Version</a></h1>
+            <h1 className="login-logo"><a href="/">My Version</a></h1>
         </div>
         <main className="container--login">
             <section>
