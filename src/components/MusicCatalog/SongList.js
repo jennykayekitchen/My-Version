@@ -5,6 +5,9 @@ import "./SongList.css"
 
 
 export const SongList = () => {
+    const localMyVersionUser = localStorage.getItem("my_version_user")
+    const myVersionUserObject = JSON.parse(localMyVersionUser)
+    
     //fetches all the songs in the database and then sets the songs object to that data when the page loads
     const [songs, setSongs] = useState([])
     useEffect(
@@ -22,7 +25,7 @@ export const SongList = () => {
     const [tags, setTags] = useState([])
     useEffect(
         () => {
-            fetch(`https://octopus-app-bcllm.ondigitalocean.app/tags`)
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/tags?userId=${myVersionUserObject.id}`)
             .then(response =>response.json())
             .then((data) => {
                 setTags(data)

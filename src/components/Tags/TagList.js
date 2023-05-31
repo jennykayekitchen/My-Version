@@ -5,9 +5,14 @@ import "./Tag.css"
 export const TagList = () => {
     //fetches all the tags and sets them tags
     const [tags, setTags] = useState([])
+    
+
+    const localMyVersionUser = localStorage.getItem("my_version_user")
+    const myVersionUserObject = JSON.parse(localMyVersionUser)
+
     useEffect(
         () => {
-            fetch(`https://octopus-app-bcllm.ondigitalocean.app/tags`)
+            fetch(`https://octopus-app-bcllm.ondigitalocean.app/tags?userId=${myVersionUserObject.id}`)
             .then(response => response.json())
             .then((data) => {
                 setTags(data)
@@ -15,6 +20,7 @@ export const TagList = () => {
         },
         []
     )
+
     
     //sends the tag info as props to tag
     return <div className="saved_tags">
@@ -36,3 +42,4 @@ export const TagList = () => {
     </div>
     </div>
 }
+
