@@ -9,10 +9,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Use the full viewport height */
+    height: 100vh;
+    /* Use the full viewport height */
 }
 
-.card1, .card2, .card3 {
+.card1,
+.card2,
+.card3 {
     margin: 400px 60px 0px 60px;
     text-align: center;
     width: 250px;
@@ -29,7 +32,8 @@
     text-decoration: none;
 }
 
-.homepage a, .homepage a:visited {
+.homepage a,
+.homepage a:visited {
     color: #180001;
     text-decoration: none;
 }
@@ -38,5 +42,38 @@
     font-weight: bold;
 }
 
+@media screen and (max-width: 600px) {
+    .home_page {
+        background-size: contain;
+    }   
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .card1 {
+    margin: 150px 0px 0px 0px;
+    }
 
+    .card2,
+    .card3 {
+        margin: 30px 0px 0px 0px;
+        text-align: center;
+        width: 250px;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        padding: 1em;
+        line-height: 1.5em;
+        background: #F5F2EE;
+        border: solid 5px #180000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #180000;
+        box-shadow: 1px 1px 3px gray;
+        text-decoration: none;
+    }
 
+}
