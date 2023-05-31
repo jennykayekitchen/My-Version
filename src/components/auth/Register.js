@@ -54,6 +54,8 @@ export const Register = (props) => {
     }
 
     return (
+        <div className="container--login">
+            
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for My Version</h1>
@@ -69,20 +71,13 @@ export const Register = (props) => {
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
                 </fieldset>
-                <fieldset>
-                    <input onChange={(evt) => {
-                        const copy = {...user}
-                        copy.isAdmin = evt.target.checked
-                        setUser(copy)
-                    }}
-                        type="checkbox" id="isAdmin" />
-                    <label htmlFor="email"> I am an admin. </label>
-                </fieldset>
+                
                 <fieldset>
                     <button type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>
+        </div>
     )
 }
 

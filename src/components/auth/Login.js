@@ -30,8 +30,8 @@ export const Login = () => {
 
     return (
         <div className="login-page">
-        <div className="nav">
-            <h1 className="login-logo"><a href="/">My Version</a></h1>
+        <div className="login-nav">
+            <div className="login-logo">My Version</div>
         </div>
         <main className="container--login">
             <section>
