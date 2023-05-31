@@ -3,10 +3,10 @@ import { AdminNav } from "./AdminNav"
 import "./NavBar.css"
 
 export const NavBar = () => {
-    const localHoneyUser = localStorage.getItem("honey_user")
-    const honeyUserObject = JSON.parse(localHoneyUser)
+    const localMyVersionUser = localStorage.getItem("my_version_user")
+    const myVersionUserObject = JSON.parse(localMyVersionUser)
 
-    if (honeyUserObject?.admin) {
+    if (myVersionUserObject?.admin) {
         return <AdminNav />
     }
     else {

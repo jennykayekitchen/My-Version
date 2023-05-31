@@ -29,7 +29,7 @@ export const Song = ({ songName, albumName, artist, featuringName, songId, tags,
         () => {
         getTaggedSongs()
         },
-        []
+        [chosenTags]
     )
 
     const handleSaveButtonClick = () => {

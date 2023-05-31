@@ -45,7 +45,7 @@ fieldset {
     text-align: center;
     background-image: url(./../backgroundpaper.jpg);
     color: #150000;
-    height:700px;
+    height:100vh;
     padding-top: 100px;
 }
 
